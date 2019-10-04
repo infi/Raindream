@@ -25,8 +25,7 @@ namespace Raindream.Services
         public async Task InitializeAsync(IServiceProvider provider)
         {
             _provider = provider;
-            await _commands.AddModulesAsync(Assembly.GetEntryAssembly());
-            // Add additional initialization code here...
+            await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _provider);
         }
 
         private async Task MessageReceived(SocketMessage rawMessage)
@@ -36,11 +35,10 @@ namespace Raindream.Services
             if (message.Source != MessageSource.User) return;
 
             int argPos = 0;
-            if (!message.HasMentionPrefix(_discord.CurrentUser, ref argPos)) return;
+            if (!message.HasStringPrefix("rd-", ref argPos)) return;
 
             var context = new SocketCommandContext(_discord, message);
             var result = await _commands.ExecuteAsync(context, argPos, _provider);
-
             if (result.Error.HasValue && 
                 result.Error.Value != CommandError.UnknownCommand)
                 await context.Channel.SendMessageAsync(result.ToString());

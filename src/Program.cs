@@ -30,22 +30,20 @@ namespace Raindream
             await _client.LoginAsync(TokenType.Bot, _config["token"]);
             await _client.StartAsync();
 
+            await _client.SetGameAsync("rd-help | Being Developed");
+
             await Task.Delay(-1);
         }
 
         private IServiceProvider ConfigureServices()
         {
             return new ServiceCollection()
-                // Base
                 .AddSingleton(_client)
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandlingService>()
-                // Logging
                 .AddLogging()
                 .AddSingleton<LogService>()
-                // Extra
                 .AddSingleton(_config)
-                // Add additional services here...
                 .BuildServiceProvider();
         }
 

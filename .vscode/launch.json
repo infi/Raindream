@@ -10,12 +10,13 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/src/DiscordBot/bin/Debug/netcoreapp1.1/DiscordBot.dll",
+            "program": "${workspaceFolder}/src/bin/Debug/netcoreapp2.2/Raindream.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/DiscordBot",
+            "cwd": "${workspaceFolder}/src",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "requireExactSource": false
         },
         {
             "name": ".NET Core Attach",
