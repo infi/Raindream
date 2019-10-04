@@ -10,7 +10,9 @@ Raindream is a bot loosely based on my bot [Daydream](https://git.geist.ga/infi/
   
 `dotnet run`
   
-<h1>Build AND Run <sup>on bash</sup></h1>
+<h3>Build AND Run <sup>on bash</sup></h3>
+`./bar.sh`
+
 ## Addendum
 
 No Database server required, I don't have any database.  
