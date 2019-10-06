@@ -18,6 +18,8 @@ namespace Raindream
         private DiscordSocketClient _client;
         private IConfiguration _config;
 
+        public static IConfiguration cfg;
+
         public async Task MainAsync()
         {
             _client = new DiscordSocketClient();
@@ -26,6 +28,8 @@ namespace Raindream
             var services = ConfigureServices();
             services.GetRequiredService<LogService>();
             await services.GetRequiredService<CommandHandlingService>().InitializeAsync(services);
+
+            cfg = _config;
 
             await _client.LoginAsync(TokenType.Bot, _config["token"]);
             await _client.StartAsync();

@@ -36,14 +36,13 @@ namespace Raindream.Services
 
         private Task LogDiscord(LogMessage message)
         {
-            /*_discordLogger.Log(
+            _discordLogger.Log(
                 LogLevelFromSeverity(message.Severity), 
                 0, 
                 message,
                 message.Exception, 
                 (_1, _2) => message.ToString(prependTimestamp: false));
-            */
-            System.Console.WriteLine(message);
+            //System.Console.WriteLine(message);
             return Task.CompletedTask;
         }
 
