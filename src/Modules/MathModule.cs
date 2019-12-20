@@ -6,9 +6,10 @@ namespace Raindream.Modules
 {
     public class MathModule : ModuleBase<SocketCommandContext>
     {
-        [Command("math")]
+        [Command("calc")]
         public async Task RunMath([Remainder] string input = "n")
         {
+            
             if (input == "n")
             {
                 await Context.Channel.SendMessageAsync("<:IconProvide:553870022125027329> Format: `rd-calc num1 [+,-,*,/,%,**,rt] num2`");

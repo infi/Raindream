@@ -25,6 +25,7 @@ namespace Raindream.Modules
             if (query == "n")
             {
                 await Context.Channel.SendMessageAsync("<:IconProvide:553870022125027329> I need a query");
+
             }
             else
             {
@@ -159,7 +160,7 @@ namespace Raindream.Modules
                         .AddField("Verified", verified, true)
                         .AddField("Downloads", downloads, true)
                         .WithThumbnailUrl(iconUri);
-                    await Context.Channel.SendMessageAsync(null,false,embedNuget.Build());
+                    await Context.Channel.SendMessageAsync(null, false, embedNuget.Build());
                 }
                 else
                 {

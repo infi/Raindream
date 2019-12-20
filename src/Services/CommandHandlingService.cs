@@ -13,6 +13,8 @@ namespace Raindream.Services
         private readonly CommandService _commands;
         private IServiceProvider _provider;
 
+        public static CommandService cmds;
+
         public CommandHandlingService(IServiceProvider provider, DiscordSocketClient discord, CommandService commands)
         {
             _discord = discord;
@@ -26,6 +28,8 @@ namespace Raindream.Services
         {
             _provider = provider;
             await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _provider);
+
+            cmds = _commands;
         }
 
         private async Task MessageReceived(SocketMessage rawMessage)
