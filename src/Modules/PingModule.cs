@@ -13,7 +13,7 @@ namespace Raindream.Modules
         {
             var msg = await Context.Channel.SendMessageAsync("⏱");
             await msg.ModifyAsync((m_) => {
-                m_.Content = $"{eService.emotes["this"]} Latency: {(msg.CreatedAt - Context.Message.CreatedAt).Milliseconds}ms. API Latency: {Context.Client.Latency}ms.";
+                m_.Content = $"{eService.emotes["this"]} Roundtrip Latency: {(msg.CreatedAt - Context.Message.CreatedAt).Milliseconds}ms. API Latency: {Context.Client.Latency}ms.";
             });
         }
     }
